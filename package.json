@@ -1,0 +1,23 @@
+{
+  "name": "saleor-demo",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {},
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/MichalAnczkiewicz/saleor-demo.git"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/MichalAnczkiewicz/saleor-demo/issues"
+  },
+  "homepage": "https://github.com/MichalAnczkiewicz/saleor-demo#readme",
+  "devDependencies": {
+    "@playwright/test": "^1.38.1",
+    "@types/node": "^20.6.3",
+    "chai": "^4.3.8"
+  }
+}
