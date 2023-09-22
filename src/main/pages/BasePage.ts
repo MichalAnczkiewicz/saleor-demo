@@ -60,6 +60,12 @@ export class BasePage {
         return await locator.first().isVisible();
     }
 
+    protected async hoverOverElement(locator: Locator) { 
+
+        await this.waitForElementToBeVisible(locator);
+        await locator.hover();
+    }
+
     private async waitForElementToBeVisible(locator: Locator) {
 
         await locator.first().waitFor({ state: "visible" });

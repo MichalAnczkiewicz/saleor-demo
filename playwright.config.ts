@@ -25,7 +25,7 @@ export default defineConfig({
 
     /* Collect trace when retrying the failed test. See https://playwright.dev/docs/trace-viewer */
     trace: 'on-first-retry',
-    // headless: true,
+    headless: true,
     screenshot: 'only-on-failure',
   },
 
@@ -33,12 +33,14 @@ export default defineConfig({
   projects: [
     {
       name: 'chromium',
-      use: { ...devices['Desktop Chrome'] },
+      use: {
+        ...devices['Desktop Chrome'],
+        viewport: { width: 1920, height: 1080 },
+        launchOptions: {
+          args: ["--start-maximized"]
+        }
+      }
     },
-    {
-      name: 'webkit',
-      use: { ...devices['Desktop Safari'] },
-    }
   ],
 
   /* Run your local dev server before starting the tests */

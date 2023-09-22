@@ -6,6 +6,7 @@ export class ProductPage extends BasePage {
     private readonly productName: Locator;
     private readonly productVersion: Locator;
     private readonly addToCardButton: Locator;
+    private readonly productPrice: Locator;
 
     constructor(page: Page, isMobile: boolean | undefined) {
 
@@ -13,6 +14,7 @@ export class ProductPage extends BasePage {
         this.productName = page.locator("[data-testid='productName']");
         this.productVersion = page.locator("div[role='radiogroup'] div[role='radio']")
         this.addToCardButton = page.locator("[data-testid='addToCartButton']");
+        this.productPrice = page.locator("div[data-testid]+div");
     }
 
     async getProductName(): Promise<string | null> {
@@ -25,6 +27,13 @@ export class ProductPage extends BasePage {
         versionToClick === 0 ?
             await this.click(this.productVersion.first()) :
             await this.click(this.productVersion.last())
+    }
+
+    async getSelectedProductPrice(productPriceToGet: number): Promise<string | null> {
+
+        return productPriceToGet === 0 ?
+            await this.getTextFromElement(this.productPrice.first()) :
+            await this.getTextFromElement(this.productPrice.last())
     }
 
     async getAddToCartButtonState(buttonState: string): Promise<boolean> {
