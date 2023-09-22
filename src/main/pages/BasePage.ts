@@ -29,6 +29,12 @@ export class BasePage {
         return await locator.textContent();
     }
 
+    protected async typeTextToInput(locator: Locator, text: string) {
+
+        await this.click(locator);
+        await locator.fill(text);
+    }
+
     protected async getAttributeFromElement(locator: Locator, attribute: string) {
 
         await locator.hover();

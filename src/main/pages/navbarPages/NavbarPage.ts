@@ -19,8 +19,9 @@ export class NavbarPage extends BasePage {
         return await this.getTextFromElement(this.cartCounter);
     }
 
-    async clickCart() {
+    async clickCartIcon() {
 
+        await this.page.waitForLoadState("networkidle");
         await this.click(this.cartIcon);
     }
 }

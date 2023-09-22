@@ -1,6 +1,6 @@
 import { test } from "@playwright/test";
 import { ProductListPage } from "../../main/pages/listingPages/ProductListPage";
-import { assert, expect } from 'chai';
+import { assert } from 'chai';
 import { TestHelpers } from "../../main/utils/TestHelpers";
 import { AssertMessages } from "../../main/utils/AssertMessages";
 import { ServiceUrls } from "../../main/utils/ServiceUrls";
