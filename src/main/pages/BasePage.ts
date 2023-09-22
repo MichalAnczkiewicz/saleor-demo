@@ -1,7 +1,7 @@
 import { Locator, Page } from "@playwright/test";
 
 export class BasePage {
-    
+
     protected readonly page: Page;
     protected readonly isMobile: Boolean | undefined;
 
@@ -17,7 +17,7 @@ export class BasePage {
         await locator.click();
     }
 
-    protected async getNumberOfElements(locator: Locator) : Promise<number> {
+    protected async getNumberOfElements(locator: Locator): Promise<number> {
 
         await this.waitForElementToBeVisible(locator.first())
         return await locator.count();
@@ -36,6 +36,18 @@ export class BasePage {
         return await locator.getAttribute(attribute);
     }
 
+    protected async isElementEnabled(locator: Locator): Promise<boolean> {
+
+        await this.waitForElementToBeVisible(locator);
+        return await locator.isEnabled();
+    }
+
+    protected async isElementDisabled(locator: Locator): Promise<boolean> {
+
+        await this.waitForElementToBeVisible(locator);
+        return await locator.isDisabled();
+    }
+
     protected async isElementVisible(locator: Locator): Promise<boolean> {
 
         await this.waitForElementToBeVisible(locator);
@@ -43,7 +55,7 @@ export class BasePage {
     }
 
     private async waitForElementToBeVisible(locator: Locator) {
-        
-        await locator.first().waitFor({state: "visible"});
+
+        await locator.first().waitFor({ state: "visible" });
     }
 }
