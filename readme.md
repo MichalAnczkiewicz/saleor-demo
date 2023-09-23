@@ -51,7 +51,7 @@ which in my opinion makes the methods which interacts with elements in `Pages` f
 
 As it's only demo of the tests, here are some ideas of what could've been done if this was real project: 
 
-* of course there should be tests, for example covering the login/register functionality 
+* of course there should be more tests, for example covering the login/register functionality 
 (as it was possible to place order without login I've decided to skip that part)
 * some reporting and logging tool might be added
 * custom assertions
