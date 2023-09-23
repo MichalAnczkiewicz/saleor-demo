@@ -6,17 +6,21 @@ import { ServiceUrls } from "../../main/utils/ServiceUrls";
 import { ProductPage } from "../../main/pages/productPages/ProductPage";
 import { NavbarPage } from "../../main/pages/navbarPages/NavbarPage";
 import { SummaryPage } from "../../main/pages/checkoutPages/SummaryPage";
+import { CreateDataFromPreviousSteps } from "../../main/utils/CreateDataFromPreviousSteps";
 
 let testHelpers: TestHelpers;
+let createDateFromPreviousSteps: CreateDataFromPreviousSteps;
+
 let productPage: ProductPage;
 let navbarPage: NavbarPage;
 let summaryPage: SummaryPage;
-
 let productPriceOnDetails;
 
 test.beforeEach(async ({ page, isMobile }) => {
 
     testHelpers = new TestHelpers(page, isMobile);
+    createDateFromPreviousSteps = new CreateDataFromPreviousSteps(page);
+
     productPage = new ProductPage(page, isMobile);
     navbarPage = new NavbarPage(page, isMobile);
     summaryPage = new SummaryPage(page, isMobile);
@@ -24,9 +28,7 @@ test.beforeEach(async ({ page, isMobile }) => {
     await testHelpers.openWebsite(ServiceUrls.EXAMPLE_PRODUCT);
 
     productPriceOnDetails = await productPage.getSelectedProductPrice(1);
-    await productPage.selectProductVersion(1);
-    await productPage.clickAddToCartButton();
-    await navbarPage.clickCartIcon();
+    await createDateFromPreviousSteps.addProductToCartAndProceedToCheckout(productPage, navbarPage);
 })
 
 test.describe('Product summary', () =>{

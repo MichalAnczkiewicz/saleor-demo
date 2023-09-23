@@ -10,8 +10,11 @@ import { parse } from 'csv-parse/sync';
 import fs from 'fs';
 import path from 'path';
 import { CreditCardPage } from "../../main/pages/checkoutPages/CreditCardPage";
+import { CreateDataFromPreviousSteps } from "../../main/utils/CreateDataFromPreviousSteps";
 
 let testHelpers: TestHelpers;
+let createDateFromPreviousSteps: CreateDataFromPreviousSteps;
+
 let contactDetailsPage: ContactDetailsPage;
 let productPage: ProductPage
 let navbarPage: NavbarPage;
@@ -28,16 +31,16 @@ const cardNumberTestData = [
 
 test.beforeEach(async ({ page, isMobile }) => {
 
+    testHelpers = new TestHelpers(page, isMobile);
+    createDateFromPreviousSteps = new CreateDataFromPreviousSteps(page);
+
     productPage = new ProductPage(page, isMobile);
     navbarPage = new NavbarPage(page, isMobile);
     contactDetailsPage = new ContactDetailsPage(page, isMobile);
     creditCardPage = new CreditCardPage(page, isMobile);
-    testHelpers = new TestHelpers(page, isMobile);
-
+    
     await testHelpers.openWebsite(ServiceUrls.EXAMPLE_PRODUCT);
-    await productPage.selectProductVersion(1);
-    await productPage.clickAddToCartButton();
-    await navbarPage.clickCartIcon();
+    await createDateFromPreviousSteps.addProductToCartAndProceedToCheckout(productPage, navbarPage);
 })
 
 test.describe('Input validations on checkout page', () => {
@@ -49,6 +52,7 @@ test.describe('Input validations on checkout page', () => {
             assert(await contactDetailsPage.isEmailInputErrorVisible(), AssertMessages.WRONG_VALUE_OF_ELEMENT)
         })
     }
+
     for (const data of cardNumberTestData) {
         test(`Card number validation - ${data}`, async () => {
 
