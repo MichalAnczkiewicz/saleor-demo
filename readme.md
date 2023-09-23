@@ -5,14 +5,14 @@ The framework is designed for automating web applications, ensuring reliable and
 
 ## ToC
 1. [Technologies used](#technologies)
-2. [Test structure](#test-structure)
+2. [Project structure](#test-structure)
 3. [Concept of tests](#test-concept)
 4. [What more could've been done](#what-more)
 5. [Running tests](#running-tests)
 
 <a name="technologies"></a>
 
-### Technologies used: 
+# 1. Technologies used: 
 
 * Playwright with Typescript support
 * chai for assertions
@@ -20,14 +20,15 @@ The framework is designed for automating web applications, ensuring reliable and
 
 <a name="test-structure"></a>
 
-### Project structure
+# 2. Project structure
 
 The project was structured in such way, that src folder splits to two subfolders:
 * **src/main** -  Contains all the main logic and page objects required for test automation.
 * **src/tests** - Contains test scripts and related data.
 
 <a name="test-concept"></a>
-### Test concept
+
+# 3. Concept of tests
 
 All tests are written in an atomic way and are independent of each other. This allows us to run the tests fully in
 parallel mode and ensures that the execution time is very short.
@@ -45,7 +46,8 @@ which in my opinion makes the methods which interacts with elements in `Pages` f
 * successful checkout
 
 <a name="what-more"></a>
-### What more could've been done
+
+# 4. What more could've been done
 
 As it's only demo of the tests, here are some ideas of what could've been done if this was real project: 
 
@@ -58,7 +60,8 @@ As it's only demo of the tests, here are some ideas of what could've been done i
 * create docker image with tests so it can run on container (that would be especially good as there will be no conflicts with node/npm versions)
 
 <a name="running-tests"></a>
-### Running tests
+
+# 5. Running tests
 
 Tests can be run both on localhost and remotely on github.
 
