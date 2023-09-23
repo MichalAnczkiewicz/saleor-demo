@@ -85,4 +85,5 @@ Follow these steps to set up and run the tests using this framework:
    
 #### Remote
 
+The pipeline with tests runs automatically when there is a pull request or push to main branch. After tests finish there will be test report uploaded.
    
