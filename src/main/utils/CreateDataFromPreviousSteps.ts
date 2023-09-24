@@ -1,17 +1,9 @@
-import { Page } from "@playwright/test";
 import { ProductPage } from "../pages/productPages/ProductPage";
 import { NavbarPage } from "../pages/navbarPages/NavbarPage";
 import { ShippingAddressPage } from "../pages/checkoutPages/ShippingAddressPage";
 import { CreditCardPage } from "../pages/checkoutPages/CreditCardPage";
 
 export class CreateDataFromPreviousSteps {
-
-    private readonly page: Page;
-
-    constructor(page: Page) {
-
-        this.page = page;
-    }
 
     async addProductToCartAndProceedToCheckout(productPage: ProductPage, navbarPage: NavbarPage) {
 

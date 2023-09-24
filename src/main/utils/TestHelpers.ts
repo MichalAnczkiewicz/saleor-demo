@@ -16,7 +16,6 @@ export class TestHelpers {
         await Promise.all([
             this.page.waitForResponse(response => response.url().includes(url) && response.status() == 200),
             this.page.goto(url),
-            // this.page.waitForLoadState('networkidle')
         ]);
     }
 
