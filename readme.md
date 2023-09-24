@@ -1,7 +1,6 @@
 # UI TESTS FOR SALEOR.DEMO.IO
 
 This repository contains a test automation framework built using Playwright and TypeScript. 
-The framework is designed for automating web applications, ensuring reliable and efficient testing.
 
 ## ToC
 1. [Technologies used](#technologies)
