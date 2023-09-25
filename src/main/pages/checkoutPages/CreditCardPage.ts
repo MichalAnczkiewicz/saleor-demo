@@ -22,7 +22,7 @@ export class CreditCardPage extends BasePage {
     async enterCardNumber(cardNumber: string) {
 
         await this.hoverOverElement(this.paymentMethods);
-        await this.page.mouse.wheel(0, 50); // scroll a little bit down as sometimes the adyen checkout doesn't show up
+        await this.page.mouse.wheel(0, 100); // scroll a little bit down as sometimes the adyen checkout doesn't show up
         await this.typeTextToInput(this.cardNumberFrame.locator('input[data-fieldtype="encryptedCardNumber"]'), cardNumber);
         await this.click(this.paymentMethods); //to ensure error is shown
     }

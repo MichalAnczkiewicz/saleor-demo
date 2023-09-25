@@ -24,16 +24,12 @@ export class ProductPage extends BasePage {
 
     async selectProductVersion(versionToClick: number) {
 
-        versionToClick === 0 ?
-            await this.click(this.productVersion.first()) :
-            await this.click(this.productVersion.last())
+        await this.click(this.productVersion.nth(versionToClick))
     }
 
     async getSelectedProductPrice(productPriceToGet: number): Promise<string | null> {
 
-        return productPriceToGet === 0 ?
-            await this.getTextFromElement(this.productPrice.first()) :
-            await this.getTextFromElement(this.productPrice.last())
+        return await this.getTextFromElement(this.productPrice.nth(productPriceToGet))
     }
 
     async getAddToCartButtonState(buttonState: string): Promise<boolean> {

@@ -19,7 +19,7 @@ let productPriceOnDetails;
 test.beforeEach(async ({ page, isMobile }) => {
 
     testHelpers = new TestHelpers(page, isMobile);
-    createDateFromPreviousSteps = new CreateDataFromPreviousSteps(page);
+    createDateFromPreviousSteps = new CreateDataFromPreviousSteps();
 
     productPage = new ProductPage(page, isMobile);
     navbarPage = new NavbarPage(page, isMobile);

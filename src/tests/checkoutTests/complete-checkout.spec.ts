@@ -28,7 +28,7 @@ let productPriceOnDetails: string | any;
 test.beforeEach(async ({ page, isMobile }) => {
 
     testHelpers = new TestHelpers(page, isMobile);
-    createDataFromPreviousSteps = new CreateDataFromPreviousSteps(page);
+    createDataFromPreviousSteps = new CreateDataFromPreviousSteps();
 
     productPage = new ProductPage(page, isMobile);
     navbarPage = new NavbarPage(page, isMobile);
@@ -58,7 +58,7 @@ test.describe('Complete checkout', () => {
 
         /*
         After all above details are provided probably some confirm order button should be clicked and then some popup might shop up that order was created successfully
-        As there is no make order button i will just assert true
+        As there is no make order button so for the sake of test i will just assert true
         */
         assert(true, AssertMessages.WRONG_VALUE_OF_ELEMENT);
     })
